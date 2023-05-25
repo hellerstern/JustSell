@@ -13,6 +13,8 @@ import IMG_SHP_02 from '../assets/shaps-02.png';
 import IMG_SHP_03 from '../assets/shaps-03.png';
 import IMG_SHP_04 from '../assets/shaps-04.png';
 
+import IMG_BACK_01 from '../assets/back1.png';
+
 export {
   IMG_01,
   IMG_02,
@@ -26,4 +28,6 @@ export {
   IMG_SHP_02,
   IMG_SHP_03,
   IMG_SHP_04,
+
+  IMG_BACK_01,
 }

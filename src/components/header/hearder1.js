@@ -2,8 +2,10 @@ import { useState } from "react";
 import styled from "styled-components";
 import { Logo } from "../../components/logo/logo";
 import { SearchInput } from "../../components/search-input/search-input";
-import { Button } from "carbon-components-react";
+import { Link } from "react-router-dom";
 import { CgMenuGridO, CgPlayListRemove } from 'react-icons/cg';
+
+import { PUBLIC_URLS } from "../../config/config";
 
 
 export const Header1 = () => {
@@ -18,8 +20,8 @@ export const Header1 = () => {
       </LeftDiv>
 
       <RightDiv className="desktop">
-        <Button1>Sign in</Button1>
-        <Button2>Start selling+</Button2>
+        <Button1 to={PUBLIC_URLS.LOGIN}>Sign in</Button1>
+        <Button2 to={PUBLIC_URLS.SIGNUP}>Start selling+</Button2>
       </RightDiv>
 
       <MenuIcon>
@@ -63,7 +65,7 @@ const Wrapper = styled.div`
 	}
 `
 
-const Button1 = styled(Button)`
+const Button1 = styled(Link)`
 	text-align: center;
 	background: #F4F4F4;
 	color: ${p => p.theme.fontColor1};
@@ -78,16 +80,16 @@ const Button1 = styled(Button)`
 		background: #F4F4F4;
 		color: ${p => p.theme.fontColor1};
 	}
+  text-decoration: none;
 `
 
-const Button2 = styled(Button)`
+const Button2 = styled(Link)`
 	border: none;
 	outline: none;
-	padding: 7px 14px !important;
+	padding: 11px 14px !important;
 	font-size: 14px;
 	line-height: 18px;
 	background: #EDAE49;
-
 	text-align: center;
 	color: ${p => p.theme.fontColor1};
 
@@ -95,6 +97,7 @@ const Button2 = styled(Button)`
 		background: #EDAE49;
 		color: ${p => p.theme.fontColor1};
 	}
+  text-decoration: none;
 `
 
 const LeftDiv = styled.div`
