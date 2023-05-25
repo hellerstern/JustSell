@@ -114,7 +114,6 @@ const Landing = () => {
 }
 
 const Wrapper = styled.div`
-	overflow: hidden;
   position: relative;
 `
 

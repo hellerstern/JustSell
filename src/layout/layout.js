@@ -24,6 +24,7 @@ export const Container = ({children}) => {
 const LayoutWrapper = styled.div`
   background-color: ${p => p.theme.bgColor};
   min-height: 100vh;
+  overflow-x: hidden;
 `
 
 const ContainerWrapper = styled.div`

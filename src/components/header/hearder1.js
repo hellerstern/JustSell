@@ -23,7 +23,7 @@ export const Header1 = () => {
       </RightDiv>
 
       <MenuIcon>
-        <CgMenuGridO onClick={() => setMobileFlag(!mobileFlag)}></CgMenuGridO>
+        <CgMenuGridO onClick={() => {setMobileFlag(!mobileFlag); console.log('first')}}></CgMenuGridO>
       </MenuIcon>
 
       <MobileDiv flag={mobileFlag}>
@@ -132,15 +132,18 @@ const MenuIcon = styled.div`
 `
 
 const MobileDiv = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   transition: all .3s;
   right: ${p => p.flag ? 0 : '-100vw'};
   backdrop-filter: blur(10px);
   width: 100vw;
   height: 100vh;
+  z-index: 100;
 
-
+  .mobileheader-wrapper {
+    z-index: 100;
+  }
   .mobileheader-wrapper {
     position: relative;
     display: flex;
