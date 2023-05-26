@@ -61,7 +61,7 @@ const Wrapper = styled.div`
   background-repeat: no-repeat;
   min-height: 100vh;
   padding: 0 33px;
-
+  background-size: contain;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

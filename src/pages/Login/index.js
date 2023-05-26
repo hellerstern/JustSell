@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { Button } from '@carbon/react';
 import { Container } from "../../layout/layout";
 import { IMG_BACK_01 } from "../../config/images";
 import { Logo } from "../../components/logo/logo";
@@ -27,6 +26,7 @@ const Login = () => {
             <p id="login-div-label">Sign in</p>
             <Input1 styleFlag={true} type={'text'} label={"EMAIL ADDRESS"} placeholder={'johndoe@example.com'} val={userEmail} setVal={setUserEmail}/> 
             <Input1 styleFlag={false} type={'password'} label={"Password"} placeholder={'*******'} val={userPass} setVal={setUserPass} />
+            <Link className="forgot-password" to={PUBLIC_URLS.FORGETPASSWORD}> Forgot Password? </Link>
 
             <button>Continue</button>
           </LoginDiv>
@@ -39,6 +39,7 @@ const Login = () => {
 
 const Wrapper = styled.div`
   background-image: url(${p => p.back});
+  background-size: contain;
   background-repeat: no-repeat;
   min-height: 100vh;
   padding: 0 33px;
@@ -106,6 +107,18 @@ const LoginDiv = styled.div`
     @media screen and (max-width: 620px) {
       margin-top: 50px;
     }
+  }
+
+  .forgot-password {
+    font-family: 'Zen Kaku Gothic Antique';
+    text-align: right;
+    float: right;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 23px;
+    text-align: right;
+    text-decoration-line: underline;
+    color: #616161;
   }
 `
 
