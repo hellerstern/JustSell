@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Container } from "../../layout/layout";
 import { IMG_BACK_01 } from "../../config/images";
 import { Logo } from "../../components/logo/logo";
-import { PUBLIC_URLS } from "../../config/config";
+import { PRIVATE_URLS, PUBLIC_URLS } from "../../config/config";
 import { Input1 } from "../../components/input/input1";
 
 const Login = () => {
 
   const [userEmail, setUserEmail] = useState('');
   const [userPass, setUserPass] = useState('');
+  const navigate = useNavigate();
 
 
   return (
@@ -28,7 +29,7 @@ const Login = () => {
             <Input1 styleFlag={false} type={'password'} label={"Password"} placeholder={'*******'} val={userPass} setVal={setUserPass} />
             <Link className="forgot-password" to={PUBLIC_URLS.FORGETPASSWORD}> Forgot Password? </Link>
 
-            <button>Continue</button>
+            <button className='next-step' onClick={() => navigate(PRIVATE_URLS.SEARCH)}>Continue</button>
           </LoginDiv>
         </LoginComponent>
       </Wrapper>
@@ -95,7 +96,7 @@ const LoginDiv = styled.div`
     }
   }
 
-  button {
+  .next-step {
     color: black;
     background: #EDAE49;
     padding: 18px 0;

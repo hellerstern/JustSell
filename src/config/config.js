@@ -21,3 +21,11 @@ export const PUBLIC_URLS = {
     RESETPERMIT: '/resetpasswordpermit',
     RESETPASSWORD: '/resetpassword',
 }
+
+export const PRIVATE_URLS = {
+    SEARCH: '/search',
+    ORDERS: '/orders',
+    CHATS: '/chats',
+    SETTINGS: '/settings',
+    ACCODE: "/accode",
+}

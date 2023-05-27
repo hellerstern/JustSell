@@ -21,12 +21,28 @@ export const Container = ({children}) => {
 	)
 }
 
+export const DashboardContainer = ({children}) => {
+  return (
+    <DashboardWrapper>
+      {children}
+    </DashboardWrapper>
+  )
+}
+
 const LayoutWrapper = styled.div`
   background-color: ${p => p.theme.bgColor};
-  min-height: 100vh;
+  height: 100vh;
   overflow-x: hidden;
 `
 
 const ContainerWrapper = styled.div`
 
+`
+
+const DashboardWrapper = styled.div`
+  /* display: flex; */
+  /* align-items: center;
+  justify-content: center; */
+  position: relative;
+  height: 100%;
 `
