@@ -7,7 +7,7 @@ import { CPasscode } from "../../../components/passcode/CPasscode";
 const Passcode = () => {
   return (
     <DashboardContainer>
-      <Sidebar current='Sales'></Sidebar>
+      <Sidebar current='wallet'></Sidebar>
       <Container>
         <Header2></Header2>
         <CPasscode></CPasscode>
