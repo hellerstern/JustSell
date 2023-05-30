@@ -4,7 +4,7 @@ import { AppContext } from './context/context';
 import { THEME_PROPS } from './config/config';
 export const Provider = ({ children }) => {
 
-  const [isSeller, setSeller] = useState(false);
+  const [isSeller, setSeller] = useState(true);
   const [delProd, setDelProd] = useState(null);
   const [flagShareDiv, setFlagShareDiv] = useState(null);
 
