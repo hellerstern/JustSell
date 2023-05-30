@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { PRIVATE_URLS } from "../../config/config";
 
-export const COrders = () => {
+export const CSales = () => {
 
   const navigate = useNavigate();
   const data = [
@@ -10,16 +10,19 @@ export const COrders = () => {
       name: 'Title',
       date: 'April 2, 2023',
       amount: 436,
+      buyer: 'Name',
     },
     {
       name: 'Title',
       date: 'April 2, 2023',
       amount: 436,
+      buyer: 'Name',
     },
     {
       name: 'Title',
       date: 'April 2, 2023',
       amount: 436,
+      buyer: 'Name',
     }
   ]
 
@@ -41,16 +44,17 @@ export const COrders = () => {
                 </div>
                 <div className='sDiv'>
                   <p>Amount</p>
-                  <p>{item.amount}</p>
+                  <p>${item.amount}</p>
+                </div>
+                <div className="sDiv">
+                  <p>Buyer</p>
+                  <p>{item.buyer}</p>
                 </div>
               </div>
 
               <div className="right-div">
-                <button>
-                  Instant Refund
-                </button>
-                <button onClick={() => navigate(PRIVATE_URLS.HI5)}>
-                  Open Hi-5
+                <button onClick={() => navigate(PRIVATE_URLS.CHATS)}>
+                  Chat
                 </button>
               </div>
             </IndexDiv>
@@ -113,6 +117,9 @@ const IndexDiv = styled.div`
       justify-content: space-between;
       width: 100%;
     }
+    @media screen and (max-width: 700px) {
+      gap: 10px;
+    }
 
     div {
       p {
@@ -139,21 +146,6 @@ const IndexDiv = styled.div`
       white-space: nowrap;
     }
     & > button:nth-child(1) {
-      background: #F63E02;
-      border-radius: 6px;
-      padding: 11px 24px;
-  
-      font-family: 'Roboto';
-      font-weight: 600;
-      font-size: 13px;
-      line-height: 18px;
-      color: #000000;
-      outline: 0;
-      border: 0;
-      margin-right: 10px;
-    }
-
-    & > button:nth-child(2) {
       background: #EDAE49;
       border-radius: 6px;
       padding: 11px 24px;
@@ -165,6 +157,7 @@ const IndexDiv = styled.div`
       color: #000000;
       outline: 0;
       border: 0;
+      margin-right: 10px;
     }
   }
 `

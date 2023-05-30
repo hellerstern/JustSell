@@ -1,24 +1,20 @@
-
-import { useState, useEffect } from 'react';
+import { useState, useContext } from 'react';
 import styled from "styled-components";
-import { SearchInput } from "../search-input/search-input";
 import { Link } from 'react-router-dom';
 import {
-  IMG_NORESULT,
   IMG_RPODUCT_1,
-  IMG_PD_1,
-  IMG_PD_2,
-  IMG_STAR_1,
-  IMG_STAR_2,
-  IMG_SHARE,
-  IMG_CHAT,
+  IMG_CLOSE,
 } from "../../config/images";
+import { VscLocation } from 'react-icons/vsc';
+import { TbShare3 } from 'react-icons/tb';
+import { AppContext } from '../../context/context';
 import { PRIVATE_URLS } from '../../config/config';
 
-export const CSearch = () => {
+export const CStore = () => {
 
-  const [searchVal, setSearchVal] = useState('');
   const [sltProduct, setSltProduct] = useState(null);
+
+  const AppData = useContext(AppContext);
 
   const products = [
     {
@@ -48,14 +44,27 @@ export const CSearch = () => {
   ]
 
   return (
-    <Wrapper> 
-      <SearchInput val={searchVal} setVal={setSearchVal}></SearchInput>
+    <Wrapper>
+
+      <StoreHeader>
+        <div className='left-div'>
+          <h1>My store</h1>
+          <div>
+            <VscLocation></VscLocation>
+            <p>City, state</p>
+          </div>
+        </div>
+
+        <Link to={PRIVATE_URLS.ADDLISTING}>Add product</Link>
+        
+      </StoreHeader>
 
       <Container>
         {
-          searchVal !== '' && sltProduct === null ? ( <ProductsContainer>{
-              products.filter(item => item.title.toUpperCase().indexOf(searchVal.toUpperCase()) !== -1).map((item, index) => (
-                <ProductDiv key={index} bgImg={item.img} onClick={() => setSltProduct(item.id)}>
+          <ProductsContainer>
+            {
+              products.map((item, index) => (
+                <ProductDiv key={index} bgImg={item.img}>
                   <div className='img-container'></div>
                   <div className='info'>
                     <h1 className='p-title'>
@@ -76,85 +85,14 @@ export const CSearch = () => {
                           item.price
                         }
                       </h1>
-                      <p className='p-region'>
-                        {
-                          item.region
-                        }
-                      </p>
+                      <TbShare3 onClick={() => AppData.setFlagShareDiv(item.id)}></TbShare3>
                     </div>
                   </div>
+
+                  <img className='remove' src={IMG_CLOSE} onClick={() => AppData.setDelProd(item.id)} />
                 </ProductDiv>
               ))
-            }</ProductsContainer> )
-             : 
-             searchVal !== '' && sltProduct !== null ? (
-              <ProductDetailDiv>
-                <div className='img-container'>
-                  <img src={IMG_PD_1}></img>
-                  <img src={IMG_PD_2}></img>
-                  <img src={IMG_PD_2}></img>
-                </div>
-
-                <div className='pd_info'>
-                  <h1 className='title'>
-                    Lavander Oil
-                  </h1>
-
-                  <div className='pd_info_container'>
-                    <div className='left_div'>
-                      <p className='region'>{'City, State'}</p>
-                      <p className='desc'>{`Description`}</p>
-                      <ul>
-                        <li>
-                          {`That’s what I do. That’s what I’m here for`}
-                        </li>
-                        <li>
-                          {`That’s what I do. That’s what I’m here for`}
-                        </li>
-                        <li>
-                          {`That’s what I do. That’s what I’m here for`}
-                        </li>
-                      </ul>
-                      <p className='detail_end'>
-                        {`There’s nothing I really wanted to do in life that I wasn’t able to get good at. That’s my skill. I’m not really specifically talented at anything except for the ability to learn.`}
-                      </p>
-                    </div>
-                    <div className='right_div'>
-                      <h1 className='price'>{`$25`}</h1>
-                      
-                      <div className='stars'>
-                        <div>
-                          <img src={IMG_STAR_1}></img>
-                          <img src={IMG_STAR_1}></img>
-                          <img src={IMG_STAR_1}></img>
-                          <img src={IMG_STAR_1}></img>
-                          <img src={IMG_STAR_2}></img>
-                        </div>
-                        <p>100 reviews</p>
-                      </div>
-
-                      <div className='icon-div'>
-                        <img src={IMG_SHARE}></img>
-                        <p>Share</p>
-                      </div>
-                      <div className='icon-div' style={{marginBottom: '100px'}}>
-                        <img src={IMG_CHAT}></img>
-                        <p>Chat</p>
-                      </div>
-                      <Link to={PRIVATE_URLS.CHECKOUT}>Book</Link>
-                    </div>
-
-                  </div>
-                </div>
-              </ProductDetailDiv>
-             ) : (
-              <Noresult>
-                <img src={IMG_NORESULT}></img>
-                <p>
-                  No results...
-                </p>
-              </Noresult>
-            )
+            }</ProductsContainer>
         }
       </Container>
     </Wrapper>
@@ -203,6 +141,13 @@ const ProductsContainer = styled.div`
 
 const ProductDiv = styled.div`
   width: 370px;
+  position: relative;
+
+  .remove {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+  }
 
   @media screen and (max-width: 425px) {
     width: 100%;
@@ -211,7 +156,6 @@ const ProductDiv = styled.div`
   border: 1px solid #000000;
   box-shadow: 0px 1px 2px rgba(51, 65, 86, 0.08);
   border-radius: 12px;
-  overflow: hidden;
   cursor: pointer;
 
   .img-container {
@@ -220,6 +164,7 @@ const ProductDiv = styled.div`
     height: 370px;
     background-repeat: no-repeat;
     background-size: cover;
+    border-radius: 12px 12px 0 0;
   }
   .info {
     padding: 16px;
@@ -254,10 +199,10 @@ const ProductDiv = styled.div`
         line-height: 137%;
         color: #FFFFFF;
       }
-      .p-region {
-        font-size: 16px;
-        line-height: 150%;
-        color: #64748B;
+      svg {
+        color: white;
+        scale: 1.4;
+        cursor: pointer;
       }
     }
   }
@@ -388,23 +333,71 @@ const ProductDetailDiv = styled.div`
           gap: 10px;
         }
 
-        a {
-          background: #EDAE49;
-          border-radius: 6px;
-          text-decoration: none;
-          color: black;
-          padding: 12px 150px;
-          font-weight: 700;
-          font-size: 13px;
-          line-height: 17px;
-          color: #000000;
-
-          @media screen and (max-width: 375px) {
-            padding: 12px;
-            width: max-content;
-          }
-        }
+        
       }
+    }
+  }
+`
+
+const StoreHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 50px;
+
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+  .left-div {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    h1 {
+      font-family: 'Unbounded';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 40px;
+      display: flex;
+      align-items: flex-end;
+      color: #FAFAFA;
+    }
+    div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 23px;
+      color: #FFFFFF;
+      svg {
+        color: white;
+        fill: white;
+        scale: 1.4;
+      }
+    }
+  }
+  a {
+    background: #EDAE49;
+    border-radius: 6px;
+    text-decoration: none;
+    color: black;
+    padding: 12px 150px;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 17px;
+    color: #000000;
+
+    @media screen and (max-width: 375px) {
+      padding: 12px;
+      width: max-content;
+    }
+    @media screen and (max-width: 1000px) {
+      width: 100%;
+      text-align: center;
     }
   }
 `

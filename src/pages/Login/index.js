@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import { Container } from "../../layout/layout";
@@ -6,8 +6,11 @@ import { IMG_BACK_01 } from "../../config/images";
 import { Logo } from "../../components/logo/logo";
 import { PRIVATE_URLS, PUBLIC_URLS } from "../../config/config";
 import { Input1 } from "../../components/input/input1";
+// import { AppContext } from '../../context/context';
 
 const Login = () => {
+
+  // const AppData = useContext(AppContext);
 
   const [userEmail, setUserEmail] = useState('');
   const [userPass, setUserPass] = useState('');
@@ -21,7 +24,7 @@ const Login = () => {
           <Logo str={'Just$ell'}></Logo>
           <Link to={PUBLIC_URLS.SIGNUP}>Sign Up</Link>
         </PageHeader>
-
+        
         <LoginComponent>
           <LoginDiv>
             <p id="login-div-label">Sign in</p>

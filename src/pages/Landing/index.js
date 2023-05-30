@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { Button } from "carbon-components-react";
 import { Container } from "../../layout/layout";
@@ -21,6 +22,9 @@ import {
 import { Footer1 } from "../../components/footer/footer1";
 
 const Landing = () => {
+
+	const [searchVal, setSearchVal] = useState('');
+
 	return (
 		<Container>
 			<Wrapper>

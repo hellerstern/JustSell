@@ -2,16 +2,17 @@ import styled from "styled-components";
 import { TextInput } from "carbon-components-react";
 import { GoSearch } from 'react-icons/go';
 
-export const SearchInput = () => {
+export const SearchInput = ({val, setVal}) => {
+
   return (
     <Wrapper>
-      <TextInput placeholder="Search service, city or username"></TextInput>
+      <TextInput placeholder="Search service, city or username" value={val} onChange={(e) => setVal(e.target.value)}></TextInput>
       <GoSearch></GoSearch>
     </Wrapper>
   )
 }
 
-export const Wrapper = styled.div`
+const Wrapper = styled.div`
   position: relative;
   svg {
     position: absolute;

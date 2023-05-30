@@ -19,6 +19,14 @@ import Orders from './pages/Dashboard/Orders';
 import Chats from './pages/Dashboard/Chats';
 import Settings from './pages/Dashboard/Settings';
 import Accode from './pages/Accode';
+import CheckOut from './pages/checkout';
+import HI5 from './pages/Dashboard/Hi5';
+import Store from './pages/Dashboard/Store';
+import AddListing from './pages/Dashboard/AddListing';
+import CitySelector from './pages/Dashboard/CitySelector';
+import Sales from './pages/Dashboard/Sales';
+import Wallet from './pages/Dashboard/Wallet';
+import Passcode from './pages/Dashboard/Passcode';
 
 function App() {
   return (
@@ -39,6 +47,15 @@ function App() {
               <Route path={PRIVATE_URLS.CHATS} element={<Chats></Chats>}></Route>
               <Route path={PRIVATE_URLS.SETTINGS} element={<Settings></Settings>}></Route>
               <Route path={PRIVATE_URLS.ACCODE} element={<Accode></Accode>}></Route>
+              <Route path={PRIVATE_URLS.CHECKOUT} element={<CheckOut></CheckOut>}></Route>
+              <Route path={PRIVATE_URLS.HI5} element={<HI5></HI5>}></Route>
+
+              <Route path={PRIVATE_URLS.STORE} element={<Store></Store>}></Route>
+              <Route path={PRIVATE_URLS.ADDLISTING} element={<AddListing></AddListing>}></Route>
+              <Route path={PRIVATE_URLS.CITYSELECTOR} element={<CitySelector></CitySelector>}></Route>
+              <Route path={PRIVATE_URLS.SALES} element={<Sales></Sales>}></Route>
+              <Route path={PRIVATE_URLS.WALLET} element={<Wallet></Wallet>}></Route>
+              <Route path={PRIVATE_URLS.PASSCODE} element={<Passcode></Passcode>}></Route>
             </Routes>
           </Layout>
         </Provider>

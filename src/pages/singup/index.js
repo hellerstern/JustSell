@@ -1,16 +1,19 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { RadioButtonGroup, RadioButton, Checkbox } from 'carbon-components-react';
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Container } from "../../layout/layout";
 import { IMG_BACK_01 } from "../../config/images";
 import { Logo } from "../../components/logo/logo";
-import { PUBLIC_URLS } from "../../config/config";
+import { PUBLIC_URLS, PRIVATE_URLS } from "../../config/config";
 import { Input1 } from "../../components/input/input1";
+import { AppContext } from '../../context/context';
 
 const SingUp = () => {
 
-
+  const AppData = useContext(AppContext);
+  console.log(AppData.isSeller);
+  const navigate = useNavigate();
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [userPass, setUserPass] = useState('');
@@ -29,15 +32,16 @@ const SingUp = () => {
             <p id="login-div-label">Sign Up</p>
 
             <StyledRadioButtonGroup
-              defaultSelected={1}
+              defaultSelected={true}
+              onChange={(e) => AppData.setSeller(e)}
             >
               <StyledRadioButton
-                value={1}
+                value={true}
                 labelText="Seller"
               />
               <StyledRadioButton
                 labelText="Buyer"
-                value={2}
+                value={false}
               />
             </StyledRadioButtonGroup>
 
@@ -47,7 +51,7 @@ const SingUp = () => {
 
             <StyledCheckbox labelText="I agree to the Terms of Service and Privacy Policy" id="checked" />
             
-            <button>Continue</button>
+            <button onClick={() => navigate(PRIVATE_URLS.SEARCH)}>Continue</button>
           </LoginDiv>
         </LoginComponent>
       </Wrapper>
@@ -61,7 +65,7 @@ const Wrapper = styled.div`
   background-repeat: no-repeat;
   min-height: 100vh;
   padding: 0 33px;
-  background-size: contain;
+  background-size: contain; 
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

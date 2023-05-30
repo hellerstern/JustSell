@@ -11,12 +11,13 @@ import { PUBLIC_URLS } from "../../config/config";
 export const Header1 = () => {
 
   const [mobileFlag, setMobileFlag] = useState(false);
+  const [searchVal, setSearchVal] = useState('');
 
   return (
     <Wrapper>
       <LeftDiv>
         <Logo str={'Just$ell'}></Logo>
-        <SearchInput></SearchInput>
+        <SearchInput val={searchVal} setVal={setSearchVal}></SearchInput>
       </LeftDiv>
 
       <RightDiv className="desktop">

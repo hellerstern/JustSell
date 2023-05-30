@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import { useEffect, useContext } from 'react';
+import styled, {css} from "styled-components";
 import { NavLink } from "react-router-dom";
 import { Logo } from "../logo/logo";
 import { PUBLIC_URLS, PRIVATE_URLS } from "../../config/config";
@@ -15,11 +16,21 @@ import {
   IMG_HELP_2,
   IMG_LOGOUT_1,
   IMG_LOGOUT_2,
+
+  IMG_STORE_1,
+  IMG_SALES_1,
+  IMG_WALLET_1,
+  IMG_STORE_2,
+  IMG_SALES_2,
+  IMG_WALLET_2,
 } from '../../config/images';
+import { AppContext } from '../../context/context';
 
-export const Sidebar = () => {
+export const Sidebar = ({current = 'search'}) => {
 
-  const data1 = [
+  const AppData = useContext(AppContext);
+
+  const data1 = AppData.isSeller ? [
     {
       img_1: IMG_SEARCH_1,
       img_2: IMG_SEARCH_2,
@@ -44,7 +55,40 @@ export const Sidebar = () => {
       label: 'Settings',
       url: PRIVATE_URLS.SETTINGS
     },
-  ];
+  ] : [
+    {
+      img_1: IMG_STORE_1,
+      img_2: IMG_STORE_2,
+      label: 'Store',
+      url: PRIVATE_URLS.STORE
+    },
+    {
+      img_1: IMG_SALES_1,
+      img_2: IMG_SALES_2,
+      label: 'Sales',
+      url: PRIVATE_URLS.SALES
+    },
+    {
+      img_1: IMG_WALLET_1,
+      img_2: IMG_WALLET_2,
+      label: 'Wallet',
+      url: PRIVATE_URLS.WALLET
+    },
+    {
+      img_1: IMG_CHAT_1,
+      img_2: IMG_CHAT_2,
+      label: 'Chats',
+      url: PRIVATE_URLS.CHATS
+    },
+    {
+      img_1: IMG_SETTING_1,
+      img_2: IMG_SETTING_2,
+      label: 'Settings',
+      url: PRIVATE_URLS.SETTINGS
+    },
+  ]
+
+  
 
   const data2 = [
     {
@@ -70,7 +114,7 @@ export const Sidebar = () => {
         <Nav>
           {
             data1.map((item, index) => (
-              <StyledNavLink to={item.url} img_1={item.img_1} img_2={item.img_2} key={index}><img></img> <p>{item.label}</p></StyledNavLink>
+              <StyledNavLink current={current.toUpperCase() === item.label.toUpperCase()} to={item.url} img_1={item.img_1} img_2={item.img_2} key={index}><img></img> <p>{item.label}</p></StyledNavLink>
             ))
           }
         </Nav>
@@ -79,7 +123,7 @@ export const Sidebar = () => {
         <Nav>
           {
             data2.map((item, index) => (
-              <StyledNavLink to={item.url} img_1={item.img_1} img_2={item.img_2} key={index}><img></img> <p>{item.label}</p></StyledNavLink>
+              <StyledNavLink current={current.toUpperCase() === item.label.toUpperCase()} to={item.url} img_1={item.img_1} img_2={item.img_2} key={index}><img></img> <p>{item.label}</p></StyledNavLink>
             ))
           }
         </Nav>
@@ -141,12 +185,12 @@ const StyledNavLink = styled(NavLink)`
     content: url(${p => p.img_1});
   }
 
-  &.active {
+  ${p => p.current ? css`
     color: ${p => p.theme.secondary};
     img {
       content: url(${p => p.img_2});
     }
-  }
+  `: ''}  
 
   @media screen and (max-width: 900px) {
     padding-left: 0px;

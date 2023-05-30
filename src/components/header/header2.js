@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { Logo } from "../logo/logo";
 import { BiMenuAltRight } from 'react-icons/bi';
 import { MdPlaylistRemove } from 'react-icons/md'
-
+import { AppContext } from "../../context/context";
 import { PUBLIC_URLS, PRIVATE_URLS } from "../../config/config";
 import {
   IMG_CHAT_1,
@@ -19,13 +19,21 @@ import {
   IMG_HELP_2,
   IMG_LOGOUT_1,
   IMG_LOGOUT_2,
+
+  IMG_STORE_1,
+  IMG_SALES_1,
+  IMG_WALLET_1,
+  IMG_STORE_2,
+  IMG_SALES_2,
+  IMG_WALLET_2,
 } from '../../config/images';
 
 export const Header2 = () => {
 
+  const AppData = useContext(AppContext);
   const [mobileFlag, setMobileFlag] = useState(false);
 
-  const data1 = [
+  const data1 = AppData.isSeller ? [
     {
       img_1: IMG_SEARCH_1,
       img_2: IMG_SEARCH_2,
@@ -50,19 +58,38 @@ export const Header2 = () => {
       label: 'Settings',
       url: PRIVATE_URLS.SETTINGS
     },
+  ] : [
     {
-      img_1: IMG_HELP_1,
-      img_2: IMG_HELP_2,
-      label: 'Get help',
-      url: '/'
+      img_1: IMG_STORE_1,
+      img_2: IMG_STORE_2,
+      label: 'Store',
+      url: PRIVATE_URLS.STORE
     },
     {
-      img_1: IMG_LOGOUT_1,
-      img_2: IMG_LOGOUT_2,
-      label: 'Log out',
-      url: PUBLIC_URLS.LOGIN
+      img_1: IMG_SALES_1,
+      img_2: IMG_SALES_2,
+      label: 'Sales',
+      url: PRIVATE_URLS.SALES
     },
-  ];
+    {
+      img_1: IMG_WALLET_1,
+      img_2: IMG_WALLET_2,
+      label: 'Wallet',
+      url: PRIVATE_URLS.WALLET
+    },
+    {
+      img_1: IMG_CHAT_1,
+      img_2: IMG_CHAT_2,
+      label: 'Chats',
+      url: PRIVATE_URLS.CHATS
+    },
+    {
+      img_1: IMG_SETTING_1,
+      img_2: IMG_SETTING_2,
+      label: 'Settings',
+      url: PRIVATE_URLS.SETTINGS
+    },
+  ]
 
   return (
     <Wrapper>

@@ -1,16 +1,16 @@
 import styled from "styled-components";
 import { DashboardContainer } from "../../../layout/layout";
 import { Sidebar } from "../../../components/sidebar/Sidebar";
-import { CSearch } from "../../../components/search/CSearch";
 import { Header2 } from "../../../components/header/header2";
+import { CPasscode } from "../../../components/passcode/CPasscode";
 
-const Search = () => {
+const Passcode = () => {
   return (
     <DashboardContainer>
-      <Sidebar current='search'/>
+      <Sidebar current='Sales'></Sidebar>
       <Container>
         <Header2></Header2>
-        <CSearch></CSearch>
+        <CPasscode></CPasscode>
       </Container>
     </DashboardContainer>
   )
@@ -20,6 +20,10 @@ const Container = styled.div`
   position: relative;
   height: 100vh;
   width: calc(100% - 250px);
+
+  display: flex;
+  flex-direction: column;
+  
   @media screen and (max-width: 900px) {
     width: calc(100% - 80px);
   }
@@ -40,4 +44,4 @@ const Container = styled.div`
   }
 `
 
-export default Search;
+export default Passcode;

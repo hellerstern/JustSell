@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-
 export const Layout = ({children}) => {
   return (
     <LayoutWrapper>
@@ -13,11 +12,11 @@ export const Layout = ({children}) => {
 
 export const Container = ({children}) => {
 	return (
-		<ContainerWrapper>
+    <ContainerWrapper>
       {
         children
       }
-		</ContainerWrapper>
+    </ContainerWrapper>
 	)
 }
 

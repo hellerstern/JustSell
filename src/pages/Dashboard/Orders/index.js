@@ -7,7 +7,7 @@ import { Header2 } from "../../../components/header/header2";
 const Orders = () => {
   return (
     <DashboardContainer>
-      <Sidebar></Sidebar>
+      <Sidebar current='orders'></Sidebar>
       <Container>
         <Header2></Header2>
         <COrders></COrders>

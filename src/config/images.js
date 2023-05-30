@@ -12,6 +12,8 @@ import IMG_SHP_01 from '../assets/shaps-01.png';
 import IMG_SHP_02 from '../assets/shaps-02.png';
 import IMG_SHP_03 from '../assets/shaps-03.png';
 import IMG_SHP_04 from '../assets/shaps-04.png';
+import IMG_APPLE_PAY from '../assets/apple-pay.png';
+import IMG_CVC_CARD from '../assets/cvc-card.png';
 
 // Individual Backgrounds
 
@@ -31,6 +33,19 @@ import IMG_HELP_1 from '../assets/icons/help-1.png';
 import IMG_HELP_2 from '../assets/icons/help-2.png';
 import IMG_LOGOUT_1 from '../assets/icons/logout-1.png';
 import IMG_LOGOUT_2 from '../assets/icons/logout-2.png';
+import IMG_STAR_1 from '../assets/icons/star1.png';
+import IMG_STAR_2 from '../assets/icons/star2.png';
+import IMG_SHARE from '../assets/icons/share.png';
+import IMG_CHAT from '../assets/icons/chat.png';
+import IMG_POWDUR from '../assets/icons/powdur.png';
+import IMG_STORE_1 from '../assets/icons/store-1.png';
+import IMG_SALES_1 from '../assets/icons/sales-1.png';
+import IMG_WALLET_1 from '../assets/icons/wallet-1.png';
+import IMG_STORE_2 from '../assets/icons/store-2.png';
+import IMG_SALES_2 from '../assets/icons/sales-2.png';
+import IMG_WALLET_2 from '../assets/icons/wallet-2.png';
+import IMG_CLOSE from '../assets/close.png';
+import IMG_CLOSE1 from '../assets/close1.png';
 
 // Individual Icons
 
@@ -43,6 +58,14 @@ import IMG_USER_3 from '../assets/users/user3.jpg';
 import IMG_USER_4 from '../assets/users/user4.jpg';
 import IMG_USER_5 from '../assets/users/user5.png';
 import IMG_ME from '../assets/users/me.jpg';
+
+// Product
+import IMG_RPODUCT_1 from '../assets/product/product1.png';
+import IMG_PRODUCT_LABEL from '../assets/product/product-label.png';
+
+// Product details images
+import IMG_PD_1 from '../assets/product_details/PD_1.png';
+import IMG_PD_2 from '../assets/product_details/PD_2.png';
 
 export {
   IMG_01,
@@ -57,6 +80,10 @@ export {
   IMG_SHP_02,
   IMG_SHP_03,
   IMG_SHP_04,
+  IMG_APPLE_PAY,
+  IMG_CLOSE,
+  IMG_CLOSE1,
+  IMG_CVC_CARD,
 
   IMG_BACK_01,
 
@@ -72,6 +99,17 @@ export {
   IMG_HELP_2,
   IMG_LOGOUT_1,
   IMG_LOGOUT_2,
+  IMG_STAR_1,
+  IMG_STAR_2,
+  IMG_SHARE,
+  IMG_CHAT,
+  IMG_POWDUR,
+  IMG_STORE_1,
+  IMG_SALES_1,
+  IMG_WALLET_1,
+  IMG_STORE_2,
+  IMG_SALES_2,
+  IMG_WALLET_2,
 
   IMG_NORESULT,
 
@@ -82,4 +120,10 @@ export {
   IMG_USER_5,
 
   IMG_ME,
+
+  IMG_RPODUCT_1,
+  IMG_PRODUCT_LABEL,
+
+  IMG_PD_1,
+  IMG_PD_2,
 }

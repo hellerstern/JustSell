@@ -28,4 +28,15 @@ export const PRIVATE_URLS = {
     CHATS: '/chats',
     SETTINGS: '/settings',
     ACCODE: "/accode",
+    CHECKOUT: "/checkout",
+    HI5: '/hi5',
+
+    STORE: '/store',
+    SALES: '/sales',
+    WALLET: '/wallet',
+    ADDLISTING: '/addlisting',
+    CITYSELECTOR: '/cityselector',
+    SALES: '/sales',
+    WALLET: '/wallet',
+    PASSCODE: '/passcode',
 }

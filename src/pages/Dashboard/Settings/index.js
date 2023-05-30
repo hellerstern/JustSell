@@ -7,7 +7,7 @@ import { CSetting } from "../../../components/setting/CSetting";
 const Settings = () => {
   return (
     <DashboardContainer>
-      <Sidebar></Sidebar>
+      <Sidebar current="settings"></Sidebar>
       <Container>
         <Header2></Header2>
         <CSetting></CSetting>

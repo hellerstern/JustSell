@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { PRIVATE_URLS } from "../../config/config";
+import { MdLogout } from 'react-icons/md';
 
-export const COrders = () => {
+export const CWallet = () => {
 
   const navigate = useNavigate();
   const data = [
@@ -10,22 +11,31 @@ export const COrders = () => {
       name: 'Title',
       date: 'April 2, 2023',
       amount: 436,
+      buyer: 'Name',
     },
     {
       name: 'Title',
       date: 'April 2, 2023',
       amount: 436,
+      buyer: 'Name',
     },
     {
       name: 'Title',
       date: 'April 2, 2023',
       amount: 436,
+      buyer: 'Name',
     }
   ]
 
   return (
     <Wrapper>
-      <h1 className="title">Orders</h1>
+      <h1 className="title">Wallet</h1>
+      <Withdraw>
+        <h1>$200</h1>
+
+        <MdLogout></MdLogout>
+        <p>Withdraw</p>
+      </Withdraw>
       <Container>
         {
           data.map((item, index) => (
@@ -41,16 +51,17 @@ export const COrders = () => {
                 </div>
                 <div className='sDiv'>
                   <p>Amount</p>
-                  <p>{item.amount}</p>
+                  <p>${item.amount}</p>
+                </div>
+                <div className="sDiv">
+                  <p>Buyer</p>
+                  <p>{item.buyer}</p>
                 </div>
               </div>
 
               <div className="right-div">
-                <button>
-                  Instant Refund
-                </button>
-                <button onClick={() => navigate(PRIVATE_URLS.HI5)}>
-                  Open Hi-5
+                <button onClick={() => navigate(PRIVATE_URLS.PASSCODE)}>
+                  Transferred
                 </button>
               </div>
             </IndexDiv>
@@ -113,6 +124,9 @@ const IndexDiv = styled.div`
       justify-content: space-between;
       width: 100%;
     }
+    @media screen and (max-width: 700px) {
+      gap: 10px;
+    }
 
     div {
       p {
@@ -139,7 +153,7 @@ const IndexDiv = styled.div`
       white-space: nowrap;
     }
     & > button:nth-child(1) {
-      background: #F63E02;
+      background: #6FD08C;
       border-radius: 6px;
       padding: 11px 24px;
   
@@ -152,19 +166,40 @@ const IndexDiv = styled.div`
       border: 0;
       margin-right: 10px;
     }
+  }
+`
 
-    & > button:nth-child(2) {
-      background: #EDAE49;
-      border-radius: 6px;
-      padding: 11px 24px;
-  
-      font-family: 'Roboto';
-      font-weight: 600;
-      font-size: 13px;
-      line-height: 18px;
-      color: #000000;
-      outline: 0;
-      border: 0;
+const Withdraw = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+
+  h1 {
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 96px;
+    line-height: 119px;
+    color: #FAFAFA;
+
+    @media screen and (max-width: 500px) {
+      font-size: 50px;
+      line-height: 70px;
     }
+  }
+  svg {
+    color: white;
+    rotate: -90deg;
+    font-size: 20px;
+    margin-top: 30px;
+  }
+  p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: #FFFFFF;
+    margin-top: 10px;
   }
 `
